@@ -4,7 +4,7 @@ from models.site import SiteURL
 
 
 def parse_iostip(text: str):
-    soup = BeautifulSoup(text)
+    soup = BeautifulSoup(text, features="html.parser")
     items = soup.find_all("div", class_="site-list-item")
     tip_list: List[dict] = []
 
@@ -27,7 +27,7 @@ def meituan_page(page: int = 1):
 
 
 def parse_meituan(text: str):
-    soup = BeautifulSoup(text)
+    soup = BeautifulSoup(text, features="html.parser")
     items = soup.find_all("div", class_="row post-container-wrapper")
     blog_list: List[dict] = []
 
@@ -44,7 +44,7 @@ def parse_meituan(text: str):
 
 
 def parse_swifttips(text: str):
-    soup = BeautifulSoup(text)
+    soup = BeautifulSoup(text, features="html.parser")
     items = soup.find_all("article", class_="tips")
     tip_list: List[dict] = []
 
