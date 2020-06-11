@@ -2,14 +2,18 @@ from typing import TypedDict, List
 from enum import Enum, unique
 
 
+DOMAIN: str = "http://47.97.111.154:8000"
+
+
 class Category(str, Enum):
-    POST = "post"
+    POST = "blog"
     WEEKLY = "weakly"
 
 
 class SiteInfo(TypedDict):
     name: str
-    url: str
+    url: str = DOMAIN
+    source: str
     path: str
     category: Category
 
@@ -39,36 +43,44 @@ class SiteURL(str, Enum):
 @unique
 class Site(Enum):
     news = SiteInfo(name="news",
-                    url=SiteURL.NEWS,
+                    url=DOMAIN+SitePath.NEWS,
+                    source=SiteURL.NEWS,
                     path=SitePath.NEWS,
                     category=Category.POST)
     meituan = SiteInfo(name="美团技术团队",
-                       url=SiteURL.MEITUAN,
+                       url=DOMAIN + SitePath.MEITUAN,
+                       source=SiteURL.MEITUAN,
                        path=SitePath.MEITUAN,
                        category=Category.POST)
     iostip = SiteInfo(name="知识小集",
-                      url=SiteURL.IOSTIPS,
+                      url=DOMAIN + SitePath.IOSTIPS,
+                      source=SiteURL.IOSTIPS,
                       path=SitePath.IOSTIPS,
                       category=Category.POST)
     tips = SiteInfo(name="swiftbysundell/tips",
-                    url=SiteURL.SWIFTTIPS,
+                    url=DOMAIN + SitePath.SWIFTTIPS,
+                    source=SiteURL.SWIFTTIPS,
                     path=SitePath.SWIFTTIPS,
                     category=Category.POST)
     articles = SiteInfo(name="swiftbysundell/articles",
-                        url=SiteURL.SWIFTARTICALS,
+                        url=DOMAIN + SitePath.SWIFTARTICALS,
+                        source=SiteURL.SWIFTARTICALS,
                         path=SitePath.SWIFTARTICALS,
                         category=Category.POST)
     majid = SiteInfo(name="swiftwithmajid",
-                     url=SiteURL.MAJIDBLOG,
+                     url=DOMAIN + SitePath.MAJIDBLOG,
+                     source=SiteURL.MAJIDBLOG,
                      path=SitePath.MAJIDBLOG,
                      category=Category.POST)
 
     appcoda = SiteInfo(name="AppCoda",
-                       url=SiteURL.APPCODA,
+                       url=DOMAIN + SitePath.APPCODA,
+                       source=SiteURL.APPCODA,
                        path=SitePath.APPCODA,
                        category=Category.WEEKLY)
     olddriver = SiteInfo(name="OldDriver",
-                         url=SiteURL.OLDDRIVER,
+                         url=DOMAIN + SitePath.OLDDRIVER,
+                         source=SiteURL.OLDDRIVER,
                          path=SitePath.OLDDRIVER,
                          category=Category.WEEKLY)
 

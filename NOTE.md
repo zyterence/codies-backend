@@ -7,6 +7,6 @@
 - 新建会话：`$ tmux new -s <session-name>`
 - 分离会话：`$ tmux detach`
 - 查看会话：`$ tmux ls`
-- 接入会话：`tmux attach -t <session-name>`
-- 杀死会话：`tmux kill-session -t <session-name>`
+- 接入会话：`$ tmux attach -t <session-name>`
+- 杀死会话：`$ tmux kill-session -t <session-name>`
 - 切换会话：`$ tmux switch -t <session-name>`
